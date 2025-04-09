@@ -18,7 +18,8 @@
       </ion-header>
 
       <ion-list>
-        <MessageListItem v-for="message in messages" :key="message.id" :message="message" />
+        <!-- AQUI VAN LOS ELEMENTOS DE LA VISTA -->
+
       </ion-list>
     </ion-content>
   </ion-page>
@@ -35,7 +36,6 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/vue';
-import MessageListItem from '@/components/MessageListItem.vue';
 import { getMessages, Message } from '@/data/messages';
 import { ref } from 'vue';
 
