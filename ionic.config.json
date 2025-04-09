@@ -1,0 +1,7 @@
+{
+  "name": "EX02_qr_reader",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
