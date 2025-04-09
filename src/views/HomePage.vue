@@ -18,7 +18,8 @@
       </ion-header>
 
       <ion-list>
-        <MessageListItem v-for="message in messages" :key="message.id" :message="message" />
+        <!-- AQUI VAN LOS ELEMENTOS DE LA VISTA -->
+
       </ion-list>
     </ion-content>
   </ion-page>
