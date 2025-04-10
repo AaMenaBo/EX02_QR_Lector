@@ -68,7 +68,17 @@ const codescan = (async () =>{
   const { ScanResult } = await CapacitorBarcodeScanner.scanBarcode({hint: 17});
   scanHistory.value.unshift(ScanResult);
   console.log(ScanResult);
-  console.log(scanHistory);
+  console.log(scanHistory.value);
+  //si es un link abrir pestaña
+  if(ScanResult.startsWith('http')) {
+    window.open(ScanResult, '_blank');
+    return;
+  }
+  //si es un correo abrir cliente de correo
+  if(ScanResult.startsWith('mailto:')) {
+    window.open(ScanResult, '_self');
+    return;
+  }
 })
 
 
