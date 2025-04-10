@@ -23,7 +23,7 @@
           <ion-card-title>Scan QR Code</ion-card-title>
         </ion-card-header>
         <ion-card-content>Click the button to scan a QR code</ion-card-content>
-        <ion-button @click="codescan(index)" color="success" fill="clear">Escanear</ion-button>
+        <ion-button @click="codescan()" color="success" fill="clear">Escanear</ion-button>
       </ion-card>
 
       <ion-list>
@@ -65,10 +65,10 @@ import { CapacitorBarcodeScanner } from '@capacitor/barcode-scanner';
 const scanHistory = ref<string[]>([]);
 
 const codescan = (async () =>{
-  const response = await CapacitorBarcodeScanner.scanBarcode({hint: 17});
-  scanHistory.unshift(response.value);
-  console.log(response.value);
-  console.log(scanHistory.value);
+  const { ScanResult } = await CapacitorBarcodeScanner.scanBarcode({hint: 17});
+  scanHistory.value.unshift(ScanResult);
+  console.log(ScanResult);
+  console.log(scanHistory);
 })
 
 
@@ -77,5 +77,4 @@ const refresh = (event: CustomEvent) => {
     event.detail.complete();
   }, 2000);
 };
-const 
 </script>
