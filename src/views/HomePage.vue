@@ -18,7 +18,7 @@
       </ion-header>
 
       <!-- Botón dentro de un card para escanear un codigo QR-->
-      <ion-card router-link="/scan">
+      <ion-card>
         <ion-card-header>
           <ion-card-title>Scan QR Code</ion-card-title>
         </ion-card-header>
@@ -28,7 +28,9 @@
 
       <ion-list>
         <!-- AQUI VAN LOS ELEMENTOS DE LA VISTA -->
-
+        <ion-item v-for="(item, index) in scanHistory" :key="index">
+          <ion-label>{{ item }}</ion-label>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-page>
@@ -51,19 +53,15 @@ import {
   IonButton,
   IonButtons,
   IonBackButton,
-  IonLabel, 
+  IonLabel,
   IonItem,
   IonIcon,
   IonAvatar,
 } from '@ionic/vue';
-import { getMessages, Message } from '@/data/messages';
 import { ref } from 'vue';
 
-const messages = ref<Message[]>(getMessages());
+// Importar el plugin de escaneo de codigos QR @capacitor/barcode-scanner
+import { CapacitorBarcodeScanner } from '@capacitor/barcode-scanner';
 
-const refresh = (ev: CustomEvent) => {
-  setTimeout(() => {
-    ev.detail.complete();
-  }, 3000);
-};
+const 
 </script>
