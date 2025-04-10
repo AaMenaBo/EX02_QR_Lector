@@ -62,6 +62,20 @@ import { ref } from 'vue';
 
 // Importar el plugin de escaneo de codigos QR @capacitor/barcode-scanner
 import { CapacitorBarcodeScanner } from '@capacitor/barcode-scanner';
+const scanHistory = ref<string[]>([]);
 
+const codescan = (async () =>{
+  const response = await CapacitorBarcodeScanner.scanBarcode({hint: 17});
+  scanHistory.unshift(response.value);
+  console.log(response.value);
+  console.log(scanHistory.value);
+})
+
+
+const refresh = (event: CustomEvent) => {
+  setTimeout(() => {
+    event.detail.complete();
+  }, 2000);
+};
 const 
 </script>
