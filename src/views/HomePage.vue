@@ -70,7 +70,7 @@ const codescan = (async () => {
   const { ScanResult } = await CapacitorBarcodeScanner.scanBarcode({ hint: 17 });
   scanHistory.value.unshift(ScanResult);
   //si es un link abrir pestaña
-  if (ScanResult.startsWith('http')) {
+  if (ScanResult.startsWith('https') || ScanResult.startsWith('http')) {
     window.open(ScanResult, '_blank');
     return;
   }
